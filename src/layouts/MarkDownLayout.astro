@@ -1,0 +1,48 @@
+---
+import Layout from "./Layout.astro"
+
+---
+
+<Layout title="Physlab">
+  <main>
+    <div class="container">
+      <slot />
+      <a href="/" class="go-back grow">Volver al inicio</a>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  document.querySelector('#search-input')?.classList.add('hidden')
+</script>
+
+<style>
+	main{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+  .container{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 350px;
+  }
+  .go-back{
+    text-decoration: none;
+    color: var(--primary-color);
+    margin: 10px 0 15px 0;
+  }
+
+  @media(min-width: 768px){
+    .container{
+      width: 700px;
+    }
+  }
+  @media(min-width: 992px){
+    .container{
+      width: 900px;
+    }
+  }
+</style>

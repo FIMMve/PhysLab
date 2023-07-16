@@ -1,0 +1,52 @@
+---
+export interface Props {
+	title: string;
+	href: string;
+}
+const { href, title } = Astro.props;
+---
+
+<a href={"/content" + href} class="card grow">
+	<h3>{title}</h3>
+</a>
+ 
+<script>
+	const cards = document.querySelectorAll('.card')
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			card.classList.toggle('active')
+		})
+	})
+</script>
+
+<style>
+	.card{
+		width: 250px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background-color: var(--snd-bg-color);
+		border-radius: 10px;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		margin: 0 0 20px 0;
+		font-size: 18px;
+		font-weight: 500;
+		transition: all 300ms ease-in-out;
+		color: var(--font-color);
+		text-decoration: none;
+		padding: 10px;
+	}
+	.active,
+	.card:hover{
+		background-color: var(--primary-color);
+		color: var(--snd-bg-color);
+	}
+	.hidden{
+    display: none;
+  }
+	.vanish{
+		opacity: 0;
+	}
+</style>
